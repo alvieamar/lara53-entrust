@@ -7,7 +7,7 @@
                 <h2>Items CRUD</h2>
             </div>
             <div class="pull-right">
-                @permission('item-create')
+                @permission(('item-create'))
                 <a class="btn btn-success" href="{{ route('itemCRUD2.create') }}"> Create New Item</a>
                 @endpermission
             </div>
@@ -32,10 +32,10 @@
                 <td>{{ $item->description }}</td>
                 <td>
                     <a class="btn btn-info" href="{{ route('itemCRUD2.show',$item->id) }}">Show</a>
-                    @permission('item-edit')
+                    @permission(('item-edit'))
                     <a class="btn btn-primary" href="{{ route('itemCRUD2.edit',$item->id) }}">Edit</a>
                     @endpermission
-                    @permission('item-delete')
+                    @permission(('item-delete'))
                     {!! Form::open(['method' => 'DELETE','route' => ['itemCRUD2.destroy', $item->id],'style'=>'display:inline']) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
